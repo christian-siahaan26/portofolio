@@ -7,7 +7,7 @@ const SKILL_CATEGORIES = [
     category: "Frontend",
     color: "cyan",
     skills: [
-      { name: "TypeScript", level: "Advanced" },
+      { name: "JavaScript", level: "Advanced" },
       { name: "React", level: "Advanced" },
       { name: "Tailwind CSS", level: "Advanced" },
       { name: "Blade", level: "Advanced" },
@@ -18,7 +18,7 @@ const SKILL_CATEGORIES = [
     color: "emerald",
     skills: [
       { name: "Node.js", level: "Advanced" },
-      { name: "Express.js", level: "Advanced" },
+      { name: "Typescript/Express.js", level: "Advanced" },
       { name: "REST API", level: "Advanced" },
       { name: "Laravel", level: "Intermediate" },
     ],
