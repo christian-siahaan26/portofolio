@@ -44,7 +44,9 @@ function useTypewriter(words, speed = 100, pause = 2000) {
 
 const ROLES = [
   "Fullstack Developer",
+  "Javascript/Typescript Enthusiast",
   "React Enthusiast",
+  "Laravel Enthusiast",
   "Node.js Engineer",
   "Clean Code Advocate",
 ];
@@ -129,7 +131,7 @@ export default function Hero() {
           >
             Saya membangun aplikasi web dari ujung ke ujung — dari API yang
             efisien hingga antarmuka yang intuitif. Berpengalaman dengan
-            ekosistem TypeScript, arsitektur clean, dan DevOps modern.
+            ekosistem Javascript/TypeScript, Laravel, arsitektur clean, dan DevOps modern.
           </motion.p>
 
           <motion.div
