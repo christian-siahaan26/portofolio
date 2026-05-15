@@ -1,0 +1,280 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  --color-gray-950: #030712;
+
+  --animate-pulse-slow: pulse 3s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+}
+
+@layer base {
+  * {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gray-950 text-gray-100 font-display;
+    background-image:
+      radial-gradient(
+        ellipse at 10% 20%,
+        rgba(6, 182, 212, 0.06) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 90% 80%,
+        rgba(16, 185, 129, 0.06) 0%,
+        transparent 50%
+      );
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-950;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-cyan-500 rounded-full;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-linear-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.15);
+  }
+
+  .glow-emerald {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.15);
+  }
+
+  .nav-link {
+    @apply relative text-gray-400 hover:text-cyan-400 transition-colors duration-300 font-mono text-sm tracking-wider;
+  }
+
+  .nav-link::after {
+    content: "";
+    @apply absolute -bottom-1 left-0 w-0 h-px bg-cyan-400 transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* ✅ Hapus @apply glass-card — tulis ulang propertinya langsung */
+  .skill-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    @apply rounded-xl p-4 flex flex-col items-center gap-3 cursor-default
+           transition-all duration-300 hover:-translate-y-2
+           hover:border-cyan-500/30;
+  }
+
+  .skill-card:hover {
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.15);
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-2;
+    font-family: var(--font-display);
+  }
+
+  .btn-primary {
+    @apply relative overflow-hidden px-6 py-3 rounded-lg font-mono text-sm font-medium
+           bg-linear-to-r from-cyan-500 to-emerald-500 text-gray-950
+           hover:scale-105 active:scale-95 transition-all duration-200
+           shadow-lg shadow-cyan-500/25;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 rounded-lg font-mono text-sm font-medium
+           border border-cyan-500/50 text-cyan-400
+           hover:bg-cyan-500/10 hover:border-cyan-400
+           transition-all duration-200;
+  }
+
+  /* ✅ Hapus @apply glass-card — tulis ulang propertinya langsung */
+  .project-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    @apply rounded-2xl overflow-hidden
+           transition-all duration-500 hover:-translate-y-2
+           hover:border-emerald-500/30;
+  }
+
+  .project-card:hover {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.15);
+  }
+}
+
+/* Noise texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Grid pattern background */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Animated border gradient */
+@keyframes border-rotate {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+.animated-border {
+  position: relative;
+  background:
+    linear-gradient(#0f172a, #0f172a) padding-box,
+    linear-gradient(var(--angle, 90deg), #06b6d4, #10b981, #06b6d4) border-box;
+  border: 2px solid transparent;
+  animation: border-rotate 4s linear infinite;
+}
+
+/* Terminal cursor blink */
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Shimmer for loading/accent effects */
+.shimmer-bg {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(6, 182, 212, 0.15) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+
+@media print {
+  /* Sembunyikan elemen navigasi dan interaktif */
+  .no-print,
+  nav,
+  .cursor-blink {
+    display: none !important;
+  }
+
+  /* Reset animasi framer motion agar konten muncul */
+  * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Background putih bersih */
+  html,
+  body {
+    background: white !important;
+    background-image: none !important;
+    color: #111 !important;
+  }
+
+  body::before {
+    display: none !important;
+  }
+
+  /* Reset semua section */
+  section {
+    min-height: auto !important;
+    padding: 24px 16px !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    display: block !important;
+  }
+
+  /* Paksa semua teks terlihat */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  span,
+  li,
+  a,
+  label,
+  textarea,
+  input {
+    color: #111 !important;
+    background: none !important;
+    -webkit-text-fill-color: #111 !important;
+  }
+
+  /* Gradient text fallback */
+  .gradient-text {
+    background: none !important;
+    -webkit-text-fill-color: #0891b2 !important;
+    color: #0891b2 !important;
+  }
+
+  /* Cards */
+  .glass-card,
+  .skill-card,
+  .project-card {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    color: #111 !important;
+  }
+
+  /* Skill bars */
+  [class*="bg-gradient"] {
+    background: #0891b2 !important;
+  }
+
+  /* Buttons — sembunyikan saja */
+  button {
+    display: none !important;
+  }
+
+  /* Ukuran halaman A4 */
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+}
