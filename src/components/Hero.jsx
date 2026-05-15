@@ -58,7 +58,7 @@ export default function Hero() {
   return (
     <section
       id="about"
-      className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden print:min-h-0 print:pt-8"
+      className="relative min-h-screen flex items-center justify-center pt-20 pb-32 overflow-hidden print:min-h-0 print:pt-8"
     >
       {/* Animated background grid */}
       <div className="absolute inset-0 grid-bg opacity-40" />
@@ -131,7 +131,8 @@ export default function Hero() {
           >
             Saya membangun aplikasi web dari ujung ke ujung — dari API yang
             efisien hingga antarmuka yang intuitif. Berpengalaman dengan
-            ekosistem Javascript/TypeScript, Laravel, arsitektur clean, dan DevOps modern.
+            ekosistem Javascript/TypeScript, Laravel, arsitektur clean, dan
+            DevOps modern.
           </motion.p>
 
           <motion.div
@@ -306,7 +307,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 no-print"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 no-print"
       >
         <span className="font-mono text-xs text-gray-600 tracking-widest">
           SCROLL
