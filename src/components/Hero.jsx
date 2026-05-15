@@ -253,7 +253,6 @@ export default function Hero() {
             />
 
             {/* Profile image */}
-            {/* Foto */}
             <motion.div
               animate={{ y: [-8, 8, -8] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -268,7 +267,7 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* Badge — animasi terpisah dengan delay biar tidak monoton */}
+            {/* Badge */}
             <div className="flex justify-between gap-4 mt-8 w-64 md:w-80">
               <motion.div
                 animate={{ y: [-5, 5, -5] }}
