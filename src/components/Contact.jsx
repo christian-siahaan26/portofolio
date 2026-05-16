@@ -9,7 +9,7 @@ const SOCIALS = [
     icon: Github,
     label: "GitHub",
     handle: "@christian-siahaan26",
-    href: "https://github.comhttps://github.com/christian-siahaan26",
+    href: "https://github.com/christian-siahaan26",
     color: "hover:text-white hover:border-white/30",
   },
   {
@@ -23,7 +23,7 @@ const SOCIALS = [
     icon: Twitter,
     label: "Twitter / X",
     handle: "@Tian_s32",
-    href: "https://x.com/Tian_https://twitter.coms32",
+    href: "https://x.com/Tian_s32",
     color: "hover:text-sky-400 hover:border-sky-500/30",
   },
   {
